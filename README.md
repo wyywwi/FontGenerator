@@ -1,6 +1,20 @@
-python ./main ..\images\test1-number\ ..\fonts\test1-number
+# Font-Generator
+
+```sh
+python ./main ..\\images\\test1-number ..\\fonts\\test1-number.ttf
+```
+
+## Requirements
 
 To run this program, please install these requirements:
+
+```
+opencv-python
+pillow
+numpy
+```
+
+and these software:
 
 ### Potrace
 
@@ -10,18 +24,8 @@ unzip the package in `/potrace/installer`, and copy the executable file into `/p
 
 I really recommand using this program under Linux enviroment. It is inconvinient to use fontforge as a python extention under Windows. 
 
-#### FontForge as a python extension
+**update:**
 
-If you have configured fontforge with the --enable-pyextension argument, then when fontforge installs itself it will also set itself up as something that can be used inside of python (up until now we have been talking about using python inside of fontforge).
+change the method using fontforge to *ffpython*. 
 
-```shell
-$ ./configure --enable-pyextension
-$ make
-$ sudo make install
-```
-
-once you do that you can invoke all of the above fontforge commands from inside of python by saying:
-
-```python
->>> import fontforge
-```
+Install fontforge under Windows, add it's bin fold's path into var *PATH*, and enjoy it!
