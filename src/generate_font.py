@@ -16,13 +16,12 @@ def generate_font(svg_directory, output_font_path):
         if svg_filename.endswith('.svg'):
             char = svg_filename.replace('.svg', '')
             char_code = ord(char)
+            processed_chars.add(char_code)
             glyph = font.createChar(char_code)
             if not glyph.importOutlines(os.path.join(svg_directory, svg_filename)):
                 print(f"Failed to import outlines for {char}")
             glyph.width = 600
-
-            # Check if the glyph has contours in the foreground layer
-            if not glyph.layers[1]:
+            if glyph.layers[1].isEmpty():
                 print(f"Glyph {char} is empty after attempting to import outlines.")
 
 
@@ -32,6 +31,9 @@ def generate_font(svg_directory, output_font_path):
     print("Times New Roman successfully imported")
     fallback_font_chinese = fontforge.open('.\\fonts\\basic\\STSong.ttf')   # 宋体 路径
     print("STSong successfully imported")
+
+    for char in processed_chars:
+        print(char)
 
     # 回退
     # 只处理在主字体编码范围内的字符

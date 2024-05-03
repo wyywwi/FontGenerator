@@ -1,6 +1,6 @@
 import argparse
 import os
-from preprocess import preprocess_image
+from preprocess import preprocess_image, preprocess_image_otsu
 from bitmap import bitmap_to_svg
 
 def main(input_dir, output_font_path):
@@ -17,8 +17,12 @@ def main(input_dir, output_font_path):
             svg_path = os.path.join(svg_dir, f'{base_name}.svg')
             
             # 图像预处理和转换
-            preprocess_image(os.path.join(input_dir, image_filename), processed_image_path)
+            # preprocess_image(os.path.join(input_dir, image_filename), processed_image_path)
+            preprocess_image_otsu(os.path.join(input_dir, image_filename), processed_image_path)
             bitmap_to_svg(processed_image_path, svg_path)
+
+    print(svg_dir)
+    print(output_font_path)
     
     # 生成字体文件
     os.system(f'ffpython ./src/generate_font.py {svg_dir} {output_font_path}')

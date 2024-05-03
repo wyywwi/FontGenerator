@@ -11,8 +11,8 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "args": [
-                ".\\images\\test1-number\\",
-                ".\\fonts\\test1-number\\"
+                ".\\images\\test1-number",
+                ".\\fonts\\test1-number.ttf"
             ]
         }
     ]
