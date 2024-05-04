@@ -11,8 +11,8 @@
             "program": "src\\main.py",
             "console": "integratedTerminal",
             "args": [
-                ".\\images\\test1-number",
-                ".\\fonts\\test1-number.ttf"
+                ".\\images\\yan-gb2312",
+                ".\\fonts\\YAN001-GB2312.ttf"
             ]
         }
     ]

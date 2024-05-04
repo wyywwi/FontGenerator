@@ -6,8 +6,8 @@ from bitmap import bitmap_to_svg
 def main(input_dir, output_font_path):
     processed_dir = os.path.join(input_dir, 'processed')
     svg_dir = os.path.join(input_dir, 'char_svg')
-    os.makedirs(processed_dir, exist_ok=True)  # 确保处理目录存在
-    os.makedirs(svg_dir, exist_ok=True)  # 确保 SVG 目录存在
+    os.makedirs(processed_dir, exist_ok=True)
+    os.makedirs(svg_dir, exist_ok=True)
 
     # 处理输入目录中的所有图像
     for image_filename in os.listdir(input_dir):
@@ -17,6 +17,7 @@ def main(input_dir, output_font_path):
             svg_path = os.path.join(svg_dir, f'{base_name}.svg')
             
             # 图像预处理和转换
+            # 采用 otsu 方法二值化
             # preprocess_image(os.path.join(input_dir, image_filename), processed_image_path)
             preprocess_image_otsu(os.path.join(input_dir, image_filename), processed_image_path)
             bitmap_to_svg(processed_image_path, svg_path)

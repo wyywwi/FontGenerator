@@ -28,6 +28,8 @@ def generate_font(svg_directory, output_font_path):
                 print(f"Glyph {char} is empty after attempting to import outlines.")
 
 
+    # log：字符回退功能经实验无法使用
+
     # # 字符回退，包括中文字符
     # print(os.getcwd())
     # fallback_font = fontforge.open('.\\fonts\\basic\\TimesNewRoman.ttf')  # Times New Roman 路径
@@ -35,8 +37,8 @@ def generate_font(svg_directory, output_font_path):
     # fallback_font_chinese = fontforge.open('.\\fonts\\basic\\STSong.ttf')   # 宋体 路径
     # print("STSong successfully imported")
 
-    for char in processed_chars:
-        print(char)
+    # for char in processed_chars:
+    #     print(char)
 
     # # 回退缩放因子
     # SCALE_FACTOR = 0.5
@@ -59,7 +61,7 @@ def generate_font(svg_directory, output_font_path):
 
     # # 检查 ASCII 字符是否回退到了 Times New Roman
     # ascii_fallback_count = 0
-    # for i in range(32, 127):  # ASCII 字符范围
+    # for i in range(32, 127):
     #     if i not in processed_chars and i in fallback_font:
     #         ascii_fallback_count += 1
 
@@ -68,18 +70,15 @@ def generate_font(svg_directory, output_font_path):
     if sum(1 for _ in font.glyphs()) == 0:
         raise Exception("No valid glyphs in font. Cannot generate TTF.")
 
-    # 生成字体文件
     font.generate(output_font_path, "ttf")
 
     # # 调整字符间距
     # font = fontforge.open(output_font_path)
     # font.autoWidth(0, 0, 2048)
 
-    # # 保存字体文件
     # font.generate(output_font_path, "ttf")
 
 def check_font(file_path):
-    # 打开字体文件
     font = fontforge.open(file_path)
 
     # 打印基本信息
@@ -93,7 +92,7 @@ def check_font(file_path):
     for glyph in font.glyphs():
         print("Glyph:", glyph.glyphname, "Unicode:", glyph.unicode)
 
-    # 使用FontForge的验证功能
+    # 使用FontForge检验生成字体
     problems = font.validate()
     if problems != 0:
         print("Validation found problems:", problems)
@@ -105,7 +104,6 @@ if __name__ == "__main__":
     parser.add_argument('svg_directory', type=str, help='Directory containing the svg images')
     parser.add_argument('output_font_path', type=str, help='Output path for the generated font file')
     args = parser.parse_args()
-    # main(args.input_dir, args.output_font_path)
     print(f'Generate Font: ')
     generate_font(args.svg_directory, args.output_font_path)
     check_font(args.output_font_path)

@@ -51,3 +51,7 @@ Install fontforge under Windows, add it's bin fold's path into var *PATH*, and e
 
 - **`--opttolerance 0.2`**: Curve optimization tolerance in Potrace. Lower values retain more bitmap details.
 - **`--alphamax 3.5`**: Maximum angle for curve smoothing in Potrace. Higher values result in smoother curves.
+
+## License
+
+Apache 2.0
