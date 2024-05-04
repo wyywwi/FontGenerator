@@ -6,8 +6,19 @@ Generate Font from png file:
 
 Name png chracter files in their unicode name, such as "0.png" and "零.png"; put them in source directory, and convert it.
 
+```
+FontGenerator
+├──fonts          font file output directory
+├──images         input image store directory
+├──potrace        svg generate software
+├──readme-asset   assets
+└──src            source code
+```
+
+Fast Run:
+
 ```sh
-python ./main.py ..\\images\\source-directory ..\\fonts\\destination-font-name.ttf
+python src/main.py ..\\images\\source-directory ..\\fonts\\destination-font-name.ttf
 ```
 
 ## Requirements
