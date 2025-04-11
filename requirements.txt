@@ -1,3 +1,5 @@
 Pillow
 numpy
 opencv-python
+fonttools
+svgpath2mpl

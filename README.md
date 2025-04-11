@@ -18,7 +18,7 @@ FontGenerator
 Fast Run:
 
 ```sh
-python src/main.py ..\\images\\source-directory ..\\fonts\\destination-font-name.ttf
+python ./src/main.py ./images/source-directory ./fonts/destination-font-name.ttf
 ```
 
 ## Requirements
@@ -29,6 +29,8 @@ To run this program, please install these requirements:
 opencv-python
 pillow
 numpy
+fonttools
+svgpath2mpl
 ```
 
 and these software:
@@ -46,6 +48,10 @@ I really recommand using this program under Linux enviroment. It is inconvinient
 change the method using fontforge to *ffpython*. 
 
 Install fontforge under Windows, add it's bin fold's path into var *PATH*, and enjoy it!
+
+**update 2:**
+
+Throw those old and poorly maintained software into the trash bin. Now we have a pure Python implementation (although still not perfect) as an alternative. Enjoy it!
 
 ## Parameters
 

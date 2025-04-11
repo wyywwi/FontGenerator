@@ -2,6 +2,7 @@ import argparse
 import os
 from preprocess import preprocess_image, preprocess_image_otsu
 from bitmap import bitmap_to_svg
+from generate_font import generate_font
 
 def main(input_dir, output_font_path):
     processed_dir = os.path.join(input_dir, 'processed')
@@ -26,7 +27,8 @@ def main(input_dir, output_font_path):
     print(output_font_path)
     
     # 生成字体文件
-    os.system(f'ffpython ./src/generate_font.py {svg_dir} {output_font_path}')
+    # os.system(f'ffpython ./src/generate_font.py {svg_dir} {output_font_path}')
+    generate_font(svg_dir, output_font_path)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate font from images.")

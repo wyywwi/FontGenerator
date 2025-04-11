@@ -13,4 +13,4 @@ def bitmap_to_svg(bitmap_path, svg_path):
     # --alphamax 3.5
     # 作用：控制输出矢量图像中曲线角的平滑度。数值越高，曲线越平滑（越少棱角）。
     # 参数：最大角度设置，可达最高4.0。
-    os.system(f'.\\potrace\\bin\\potrace.exe {bmp_path} -s -o {svg_path} --opttolerance 0.4 --alphamax 2.5')
+    os.system(f'./potrace/bin/potrace {bmp_path} -s -o {svg_path} --flat --opttolerance 0.4 --alphamax 2.5')
