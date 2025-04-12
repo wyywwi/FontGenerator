@@ -298,19 +298,21 @@ def transform_path_commands(commands, transform_matrix):
         elif cmd == 'A':
             # 椭圆弧需要特殊处理，这里简化处理
             # 可以使用函数 transform_elliptical_arc 优化
-            rx, ry = params[0], params[1]
-            x_axis_rotation = params[2]
-            large_arc_flag, sweep_flag = params[3], params[4]
-            x, y = params[5], params[6]
+            # rx, ry = params[0], params[1]
+            # x_axis_rotation = params[2]
+            # large_arc_flag, sweep_flag = params[3], params[4]
+            # x, y = params[5], params[6]
             
-            # 变换半径（简化，只考虑缩放）
-            new_rx = rx * abs(transform_matrix[0])
-            new_ry = ry * abs(transform_matrix[3])
+            # # 变换半径（简化，只考虑缩放）
+            # new_rx = rx * abs(transform_matrix[0])
+            # new_ry = ry * abs(transform_matrix[3])
             
-            # 变换终点
-            new_x, new_y = apply_transform(x, y, transform_matrix)
+            # # 变换终点
+            # new_x, new_y = apply_transform(x, y, transform_matrix)
             
-            transformed_commands.append((cmd, [new_rx, new_ry, x_axis_rotation, large_arc_flag, sweep_flag, new_x, new_y]))
+            # transformed_commands.append((cmd, [new_rx, new_ry, x_axis_rotation, large_arc_flag, sweep_flag, new_x, new_y]))
+            transformed_commands.append((cmd, transform_elliptical_arc(*params, transform_matrix)))
+            
         elif cmd == 'Z':
             transformed_commands.append((cmd, []))
     
